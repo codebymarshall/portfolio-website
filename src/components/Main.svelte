@@ -75,7 +75,7 @@
         </div>
         <div class="relative shadow-2xl grid place-items-center">
             <img
-                src={".svelte-kit/static/images/profile.png"}
+                src={"/images/profile.png"}
                 alt="Jonathan Marshall"
                 class="object-cover z-[2] max-h-[70vh]"
             />
