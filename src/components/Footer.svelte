@@ -1,6 +1,6 @@
 <footer
     id="contact"
-    class="py-20 sm:py-32 bg-black border-t border-solid border-slate-950 flex flex-col gap-4 sm:gap-8 justify-center items-center"
+    class="py-20 sm:py-32 bg-gray-950 opacity-85 border-r border-t border-l border-solid border-slate-400 flex flex-col gap-4 sm:gap-8 justify-center items-center"
 >
     <p class="px-4 py-2 bg-white text-slate-950 font-medium">
         Connect with me &darr;
@@ -20,7 +20,7 @@
         <p class="">jonathanmarshall.it@protonmail.com</p> -->
         
         <p>
-            <b class="pr-2">Email</b>
+            <b class="pr-2">Email:</b>
             <a href="mailto:jonathanmarshall.it@protonmail.com" target="_blank" class="text-slate-400"
                 >jonathanmarshall.it@protonmail.com<sup class=""
                     ><span class="text-xs scale-75 pl-0.5"
@@ -31,7 +31,7 @@
             >
         </p>
         <p>
-            <b class="pr-2">GitHub</b>
+            <b class="pr-2">GitHub:</b>
             <a href="https://github.com/codebymarshall" target="_blank" class="text-slate-400"
                 >codebymarshall<sup class=""
                     ><span class="text-xs scale-75 pl-0.5"
@@ -42,7 +42,7 @@
             >
         </p>
         <p>
-            <b class="pr-2">LinkedIn</b>
+            <b class="pr-2">LinkedIn:</b>
             <a href="https://www.linkedin.com/in/codebymarshall/" target="_blank" class="text-slate-400"
                 >codebymarshall<sup class=""
                     ><span class="text-xs scale-75 pl-0.5"

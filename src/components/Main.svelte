@@ -60,7 +60,7 @@
         <div
             class="flex flex-col lg:justify-center text-center lg:text-left gap-6 md:gap-8 lg:gap-10"
         >
-            <h2 class="font-semibold text-4xl sm:text-5xl md:text-6xl">
+            <h2 class="font-semibold text-4xl sm:text-5xl md:text-5xl">
                 Hi! I'm <span class="poppins text-cyan-400">Jonathan</span> Marshall
                 <br />Full Stack
                 <span class="poppins text-cyan-400">Developer</span>
@@ -95,20 +95,14 @@
             class="mx-auto px-4 py-2 rounded-md border border-solid border-white flex items-center gap-2 -mb-4 sm:-mb-0 -mt-10 hover:border-cyan-700 duration-200"
         >
             <i class="fa-regular fa-circle-play"></i>
-            <p>A few words...</p>
+            <p>{showVideo ? 'Close Video' : 'A few words...'}</p>
         </button>
     {#if showVideo}
-        <div class="mx-auto">
-            <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-                class="rounded-md"
-            ></iframe>
+        <div class="relative">
+            <smartvideo src="https://www.youtube.com/embed/VNOAUjHFTFw?si=pY3cqaX30kOL3RvA" 
+                width="1280" height="720"
+                class="swarm-fluid" controls>
+            </smartvideo>
         </div>
     {/if}
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10">

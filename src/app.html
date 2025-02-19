@@ -22,8 +22,8 @@
 <body data-sveltekit-preload-data="hover" class="bg-gray-950 text-slate-200 relative">
 	<div style="display: contents" class="relative z-[1]">%sveltekit.body%</div>
 
-	<div class="absolute min-h-screen top-0 left-0 w-full z-[-1] opacity-70">
-		<div id="particles-js" class="absolute inset-0" />
+	<div class="absolute top-0 left-0 w-full h-full z-[-1] opacity-70">
+		<div id="particles-js" class="absolute inset-0"></div>
 	</div>
 	<script>
 		particlesJS.load("particles-js", ".svelte-kit/static/assets/particles.json", function () {
@@ -31,5 +31,20 @@
 		});
 	</script>
 </body>
+
+<script data-cfasync="false">
+    var swarmoptions = {
+        swarmcdnkey: "0b227d16-a19c-46fc-9213-5a660158b017",
+        iframeReplacement: "iframe",
+        autoreplace: {
+            youtube: true
+        },
+        theme: {
+            button: "circle",
+            primaryColor: "#00d3f2"
+        }
+    };
+</script>
+<script async data-cfasync="false" src="https://assets.swarmcdn.com/cross/swarmdetect.js"></script>
 
 </html>
