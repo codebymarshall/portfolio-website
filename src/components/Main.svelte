@@ -1,6 +1,5 @@
 <script>
     import { onMount } from 'svelte';
-    import { fade, fly, slide } from 'svelte/transition';
     import Step from "./Step.svelte";
 
     let steps = [
@@ -62,11 +61,11 @@
 
 <main class="flex flex-col flex-1 p-4 relative">
     <div id="particles-js" class="absolute inset-0 z-[-1]"></div>
-    <section in:fade={{ duration: 1000 }}
+    <section
         id="introPage"
         class="grid grid-cols-1 lg:grid-cols-2 gap-10 py-8 sm:py-14"
     >
-        <div in:fly={{ y: 50, duration: 1000 }}
+        <div
             class="flex flex-col lg:justify-center text-center lg:text-left gap-6 md:gap-8 lg:gap-10"
         >
             <h2 class="font-semibold text-4xl sm:text-5xl md:text-6xl">
@@ -82,7 +81,7 @@
                 <h4 class="relative z-9">Get in touch &rarr;</h4>
             </a>
         </div>
-        <div in:fly={{ y: 50, duration: 1000, delay: 300 }} class="relative shadow-2xl grid place-items-center">
+        <div class="relative shadow-2xl grid place-items-center">
             <img
                 src={".svelte-kit/static/images/profile.png"}
                 alt="Jonathan Marshall"
@@ -90,7 +89,7 @@
             />
         </div>
     </section>
-    <section in:fade={{ duration: 1000, delay: 200 }} class="py-20 lg:py-32 flex flex-col gap-24" id="projects">
+    <section class="py-20 lg:py-32 flex flex-col gap-24" id="projects">
         <div class="flex flex-col gap-2 text-center">
             <h6 class="text-large sm:text-xl md:text-2xl">
                 A few of my creative endeavors.
@@ -107,7 +106,7 @@
             <p>A few words...</p>
         </button>
     {#if showVideo}
-        <div in:slide={{ duration: 300 }} out:slide={{ duration: 300 }} class="mx-auto">
+        <div class="mx-auto">
             <iframe
                 width="560"
                 height="315"
@@ -121,18 +120,39 @@
         </div>
     {/if}
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10">
-            {#each steps as step, i}
-                <div in:fly={{ y: 50, duration: 1000, delay: i * 200 }}>
-                    <Step {step}>
-                        <p>
-                            {step.description}
-                        </p>
-                    </Step>
-                </div>
-            {/each}
+            <Step step={steps[0]}>
+                <p>
+                    A modern e-commerce store built with <strong
+                        class="text-cyan-400"
+                        >Next.js, TypeScript, and Tailwind CSS.</strong
+                    > This project demonstrates a fully functional e-commerce platform with features like product browsing, cart management, user authentication, and secure payments.
+                </p>
+            </Step>
+            <Step step={steps[1]}>
+                <p>
+                    Using <strong
+                        class="text-cyan-400">Java</strong
+                    >,
+                    <strong class="text-cyan-400">Room Framework (SQLite Database) + Android SDK (Version 34)</strong
+                    >
+                    & <strong class="text-cyan-400">Gradle Build System.</strong> This application helps you organize your future vacations and excursions with a beautiful, user-friendly interface.
+                </p>
+            </Step>
+            <Step step={steps[2]}>
+                <p>
+                    The Pipeline Pilot is a <strong class="text-cyan-400"
+                        >Python, Groovy, Yaml, Bash, Dockerfile</strong
+                    >
+                    streamlined, end-to-end CI/CD pipeline that integrates AI-powered code analysis. I leveraged DevOps methodologies,
+                    <strong class="text-cyan-400">containerization, orchestration, and AI integration</strong>,
+                    to build a scalable, efficient system. Designed as a
+                    <strong class="text-cyan-400">manageable, demo-ready MVP</strong>,
+                    it showcases automation and intelligent code evaluation to enhance development workflows (coming soon)!
+                </p>
+            </Step>
         </div>
     </section>
-    <section in:fade={{ duration: 1000 }}
+    <section
         id="about"
         class="py-20 pt-10 lg:pt-16 lg:py-32 flex flex-col gap-16 sm:gap-20 md:gap-24 relative"
     >
@@ -152,8 +172,22 @@
         </p>
         <div class="flex flex-col gap-20 w-full mx-auto max-w-[800px]">
             {#each benefits as benefit, index}
-                <div in:fly={{ x: index % 2 ? 50 : -50, duration: 1000, delay: index * 200 }} 
-                     class="flex gap-6 sm:gap-8">
+                <!-- <div class="flex flex-col gap-2 mx-auto">
+                    <div class="flex items-end gap-4">
+                        <p
+                            class="poppins text-6xl sm:text-7xl md:text-8xl text-slate-500 font-medium"
+                        >
+                            {benefit.metric}
+                        </p>
+                        <p
+                            class="text-xl sm:text-2xl md:text-3xl capitalize pb-2"
+                        >
+                            {benefit.name}
+                        </p>
+                    </div>
+                    <p class="text-center italic">- {benefit.description}</p>
+                </div> -->
+                <div class="flex gap-6 sm:gap-8">
                     <p
                         class="poppins text-4xl sm:text-5xl md:text-6xl text-slate-500 font-semibold"
                     >
