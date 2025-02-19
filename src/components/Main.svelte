@@ -1,5 +1,4 @@
 <script>
-    import { onMount } from 'svelte';
     import Step from "./Step.svelte";
 
     let steps = [
@@ -51,16 +50,9 @@
         event.preventDefault();
         showVideo = !showVideo;
     }
-
-    onMount(() => {
-        particlesJS.load('particles-js', '.svelte-kit/static/assets/particles.json', function() {
-            console.log('callback - particles.js config loaded');
-        });
-    });
 </script>
 
-<main class="flex flex-col flex-1 p-4 relative">
-    <div id="particles-js" class="absolute inset-0 z-[-1]"></div>
+<main class="flex flex-col flex-1 p-4">
     <section
         id="introPage"
         class="grid grid-cols-1 lg:grid-cols-2 gap-10 py-8 sm:py-14"
