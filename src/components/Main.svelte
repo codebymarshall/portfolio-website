@@ -1,4 +1,6 @@
 <script>
+    import { onMount } from 'svelte';
+    import { fade, fly, slide } from 'svelte/transition';
     import Step from "./Step.svelte";
 
     let steps = [
@@ -50,14 +52,21 @@
         event.preventDefault();
         showVideo = !showVideo;
     }
+
+    onMount(() => {
+        particlesJS.load('particles-js', '.svelte-kit/static/assets/particles.json', function() {
+            console.log('callback - particles.js config loaded');
+        });
+    });
 </script>
 
-<main class="flex flex-col flex-1 p-4">
-    <section
+<main class="flex flex-col flex-1 p-4 relative">
+    <div id="particles-js" class="absolute inset-0 z-[-1]"></div>
+    <section in:fade={{ duration: 1000 }}
         id="introPage"
         class="grid grid-cols-1 lg:grid-cols-2 gap-10 py-8 sm:py-14"
     >
-        <div
+        <div in:fly={{ y: 50, duration: 1000 }}
             class="flex flex-col lg:justify-center text-center lg:text-left gap-6 md:gap-8 lg:gap-10"
         >
             <h2 class="font-semibold text-4xl sm:text-5xl md:text-6xl">
@@ -73,30 +82,15 @@
                 <h4 class="relative z-9">Get in touch &rarr;</h4>
             </a>
         </div>
-        <div class="relative shadow-2xl grid place-items-center">
+        <div in:fly={{ y: 50, duration: 1000, delay: 300 }} class="relative shadow-2xl grid place-items-center">
             <img
                 src={".svelte-kit/static/images/profile.png"}
                 alt="Jonathan Marshall"
                 class="object-cover z-[2] max-h-[70vh]"
             />
         </div>
-        <!-- <div  class="flex p-0.5 relative max-w-[700px] w-full mx-auto">
-            <div
-                class="absolute inset-0 overflow-hidden rounded-md flex items-center justify-center"
-            >
-                <div
-                    class="bg-gradient-to-r absolute inset-[-20px]  from-cyan-800 to-indigo-800 specialSpin"
-                />
-            </div>
-
-            <img
-                src={"images/zetane-engine.jpeg"}
-                alt="Zetane Engine"
-                class="w-full h-full object-cover z-[2]"
-            />
-        </div> -->
     </section>
-    <section class="py-20 lg:py-32 flex flex-col gap-24" id="projects">
+    <section in:fade={{ duration: 1000, delay: 200 }} class="py-20 lg:py-32 flex flex-col gap-24" id="projects">
         <div class="flex flex-col gap-2 text-center">
             <h6 class="text-large sm:text-xl md:text-2xl">
                 A few of my creative endeavors.
@@ -113,7 +107,7 @@
             <p>A few words...</p>
         </button>
     {#if showVideo}
-        <div class="mx-auto">
+        <div in:slide={{ duration: 300 }} out:slide={{ duration: 300 }} class="mx-auto">
             <iframe
                 width="560"
                 height="315"
@@ -127,39 +121,18 @@
         </div>
     {/if}
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-10">
-            <Step step={steps[0]}>
-                <p>
-                    A modern e-commerce store built with <strong
-                        class="text-cyan-400"
-                        >Next.js, TypeScript, and Tailwind CSS.</strong
-                    > This project demonstrates a fully functional e-commerce platform with features like product browsing, cart management, user authentication, and secure payments.
-                </p>
-            </Step>
-            <Step step={steps[1]}>
-                <p>
-                    Using <strong
-                        class="text-cyan-400">Java</strong
-                    >,
-                    <strong class="text-cyan-400">Room Framework (SQLite Database) + Android SDK (Version 34)</strong
-                    >
-                    & <strong class="text-cyan-400">Gradle Build System.</strong> This application helps you organize your future vacations and excursions with a beautiful, user-friendly interface.
-                </p>
-            </Step>
-            <Step step={steps[2]}>
-                <p>
-                    The Pipeline Pilot is a <strong class="text-cyan-400"
-                        >Python, Groovy, Yaml, Bash, Dockerfile</strong
-                    >
-                    streamlined, end-to-end CI/CD pipeline that integrates AI-powered code analysis. I leveraged DevOps methodologies,
-                    <strong class="text-cyan-400">containerization, orchestration, and AI integration</strong>,
-                    to build a scalable, efficient system. Designed as a
-                    <strong class="text-cyan-400">manageable, demo-ready MVP</strong>,
-                    it showcases automation and intelligent code evaluation to enhance development workflows (coming soon)!
-                </p>
-            </Step>
+            {#each steps as step, i}
+                <div in:fly={{ y: 50, duration: 1000, delay: i * 200 }}>
+                    <Step {step}>
+                        <p>
+                            {step.description}
+                        </p>
+                    </Step>
+                </div>
+            {/each}
         </div>
     </section>
-    <section
+    <section in:fade={{ duration: 1000 }}
         id="about"
         class="py-20 pt-10 lg:pt-16 lg:py-32 flex flex-col gap-16 sm:gap-20 md:gap-24 relative"
     >
@@ -179,22 +152,8 @@
         </p>
         <div class="flex flex-col gap-20 w-full mx-auto max-w-[800px]">
             {#each benefits as benefit, index}
-                <!-- <div class="flex flex-col gap-2 mx-auto">
-                    <div class="flex items-end gap-4">
-                        <p
-                            class="poppins text-6xl sm:text-7xl md:text-8xl text-slate-500 font-medium"
-                        >
-                            {benefit.metric}
-                        </p>
-                        <p
-                            class="text-xl sm:text-2xl md:text-3xl capitalize pb-2"
-                        >
-                            {benefit.name}
-                        </p>
-                    </div>
-                    <p class="text-center italic">- {benefit.description}</p>
-                </div> -->
-                <div class="flex gap-6 sm:gap-8">
+                <div in:fly={{ x: index % 2 ? 50 : -50, duration: 1000, delay: index * 200 }} 
+                     class="flex gap-6 sm:gap-8">
                     <p
                         class="poppins text-4xl sm:text-5xl md:text-6xl text-slate-500 font-semibold"
                     >
@@ -288,35 +247,172 @@
         <p class="mx-auto">So why not invest?</p>
     </section>
     <section id="skills" class="py-20 flex flex-col gap-10">
-        <h3 class="font-semibold text-3xl sm:text-4xl md:text-5xl text-center">
-            My Skills &amp; Tech Stack
-        </h3>
-        <div class="flex flex-wrap justify-center gap-6">
-            <div class="flex flex-col items-center">
-                <img src="path/to/javascript-logo.png" alt="JavaScript" class="w-16 h-16" />
-                <p class="mt-2">JavaScript</p>
+        <div
+            class="flex flex-col gap-2 text-center relative before:absolute before:top-0 before:left-0 before:w-2/3 before:h-1.5 before:bg-cyan-700 after:absolute after:bottom-0 after:right-0 after:w-2/3 after:h-1.5 after:bg-cyan-700 py-4">
+            <h3 class="font-semibold text-3xl sm:text-4xl md:text-5xl">
+                My Skills & <span class="poppins text-cyan-400">Tech</span> Stack
+            </h3>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 my-15">
+            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 duration-200">
+                <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
+                    Main Coding Languages
+                </p>
+                <p class="mt-2">&nbsp;</p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="flex flex-col items-center">
+                        <i class="fa-brands fa-js fa-2xl"></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">JavaScript</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fa-brands fa-python fa-2xl"></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">Python</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="flex flex-col items-center">
+                            <i class="fa-brands fa-java fa-2xl"></i>
+                            <p class="mt-2">&nbsp;</p>
+                            <p class="mt-2">Java</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="flex flex-col items-center">
-                <img src="path/to/react-logo.png" alt="React" class="w-16 h-16" />
-                <p class="mt-2">React</p>
+            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 duration-200">
+                <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
+                    Frontend
+                </p>
+                <p class="mt-2">&nbsp;</p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="flex flex-col items-center">
+                        <i class="fa-brands fa-react fa-2xl"></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">React</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fa-brands fa-html5 fa-2xl"></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">HTML & CSS</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fa-brands fa-css3-alt fa-2xl"></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">TailwindCSS</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fa-brands fa-android fa-2xl"></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">Android </p> 
+                    </div>
+                </div>
             </div>
-            <div class="flex flex-col items-center">
-                <img src="path/to/python-logo.png" alt="Python" class="w-16 h-16" />
-                <p class="mt-2">Python</p>
+            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 duration-200">
+                <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
+                    Backend
+                </p>
+                <p class="mt-2">&nbsp;</p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="flex flex-col items-center">
+                        <i class="fa-brands fa-java fa-2xl"></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">Java</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fa-solid fa-bolt fa-2xl"></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">Spring Boot</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fa-brands fa-node-js fa-2xl"></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">Node.js</p>
+                    </div>
+                </div>
             </div>
-            <!-- Add more technologies as needed -->
+            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 duration-200">
+                <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
+                    Databases & Storage
+                </p>
+                <p class="mt-2">&nbsp;</p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="flex flex-col items-center">
+                        <i class="fa-solid fa-database fa-2xl"></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">MySQL</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fa-solid fa-database fa-2xl"></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">PostgreSQL</p>
+                    </div><div class="flex flex-col items-center">
+                        <i class="fa-solid fa-database fa-2xl"></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">SQLite</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fa-solid fa-database fa-2xl"></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">Room Database</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 duration-200">
+                <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
+                    Cloud & Dev Ops
+                </p>
+                <p class="mt-2">&nbsp;</p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="flex flex-col items-center">
+                        <i class="fa-brands fa-aws fa-2xl"></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">AWS</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fa-brands fa-docker fa-2xl"></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">Docker</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fa-brands fa-git-alt fa-2xl" ></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">CI/CD Github Actions</p>
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 duration-200">
+                <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
+                    Other tools
+                </p>
+                <p class="mt-2">&nbsp;</p>
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="flex flex-col items-center">
+                        <i class="fa-brands fa-github fa-2xl"></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">Git & GitHub</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fa-brands fa-linux fa-2xl"></i>
+                        <p class="mt-2">&nbsp;</p>
+                        <p class="mt-2">Linux & Bash Scripting</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <section id="resume" class="py-20 flex flex-col gap-10">
-        <h3 class="font-semibold text-3xl sm:text-4xl md:text-5xl text-center">
-            Resume
-        </h3>
+        <div class="flex flex-col gap-2 text-center">
+            <h3 class="font-semibold text-3xl sm:text-4xl md:text-5xl">
+                Curious to <span class="poppins text-cyan-400">see</span> my resume?
+            </h3>
+        </div>
         <p class="text-center">
             Download my resume to see highlights of my experience and education.
         </p>
         <a href="https://github.com/codebymarshall/resume/releases/latest" 
            target="_blank" 
-           class="mx-auto px-6 py-3 rounded-full bg-cyan-400 text-white text-lg font-semibold hover:bg-cyan-500 transition duration-200">
+           class="blueShadow lg:mr-auto text-base sm:text-lg md:text-xl poppins relative mx-auto px-6 py-3 rounded-full overflow-hidden px-6 py-3 group rounded-full bg-white text-slate-950">
+           <div class="absolute top-0 right-full w-full h-full bg-cyan-400 opacity-20 group-hover:translate-x-full z-0 duration-200"></div>
             Download Resume
         </a>
     </section>
