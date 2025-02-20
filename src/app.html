@@ -6,9 +6,6 @@
 	<link rel="icon" type="image/png" href="/favicon.png?v=1" />
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"
-		integrity="sha512-Kef5sc7gfTacR7TZKelcrRs15ipf7+t+n7Zh6mKNJbmW+/RRdCW9nwfLn4YX0s2nO6Kv5Y2ChqgIakaC6PW09A=="
-		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<link
 		href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400&display=swap"
 		rel="stylesheet">
@@ -20,31 +17,43 @@
 </head>
 
 <body data-sveltekit-preload-data="hover" class="bg-gray-950 text-slate-200 relative min-h-screen">
-	<div style="display: contents" class="relative z-[1]">%sveltekit.body%</div>
+	<div style="display: contents" class="relative z-[2]">%sveltekit.body%</div>
+	<div id="particles-js" class="fixed top-0 left-0 w-full h-full z-[1] opacity-70"></div>
 
-	<div class="fixed top-0 left-0 w-screen h-screen z-[-1] opacity-70">
-		<div id="particles-js" class="absolute inset-0 w-full h-full"></div>
-	</div>
+	<script data-cfasync="false">
+		var swarmoptions = {
+			swarmcdnkey: "0b227d16-a19c-46fc-9213-5a660158b017",
+			iframeReplacement: "iframe",
+			autoreplace: {
+				youtube: true
+			},
+			theme: {
+				button: "circle",
+				primaryColor: "#00d3f2"
+			}
+		};
+	</script>
+	<script async data-cfasync="false" src="https://assets.swarmcdn.com/cross/swarmdetect.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"
+		integrity="sha512-Kef5sc7gfTacR7TZKelcrRs15ipf7+t+n7Zh6mKNJbmW+/RRdCW9nwfLn4YX0s2nO6Kv5Y2ChqgIakaC6PW09A=="
+		crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	<script>
-		particlesJS.load("particles-js", "/assets/particles.json", function () {
-			console.log("callback - particles.js config loaded");
+		window.addEventListener('load', function() {
+			const particlesContainer = document.getElementById('particles-js');
+			if (!particlesContainer) {
+				console.error("Particles container not found!");
+				return;
+			}
+
+			console.log("Loading particles configuration");
+			particlesJS.load('particles-js', '/assets/particles.json', function(response) {
+				if (response) {
+					console.log('Particles.js config loaded successfully');
+				} else {
+					console.error('Error loading particles.js config');
+				}
+			});
 		});
 	</script>
 </body>
-
-<script data-cfasync="false">
-    var swarmoptions = {
-        swarmcdnkey: "0b227d16-a19c-46fc-9213-5a660158b017",
-        iframeReplacement: "iframe",
-        autoreplace: {
-            youtube: true
-        },
-        theme: {
-            button: "circle",
-            primaryColor: "#00d3f2"
-        }
-    };
-</script>
-<script async data-cfasync="false" src="https://assets.swarmcdn.com/cross/swarmdetect.js"></script>
-
 </html>
