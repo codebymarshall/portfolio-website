@@ -52,7 +52,7 @@
     }
 </script>
 
-<main class="flex flex-col flex-1 p-4">
+<main class="flex flex-col flex-1 p-4 text-slate-200">
     <section
         id="introPage"
         class="grid grid-cols-1 lg:grid-cols-2 gap-10 py-8 sm:py-14"
@@ -92,10 +92,11 @@
         </div>
         <button
             on:click={toggleVideo}
-            class="mx-auto px-4 py-2 rounded-md border border-solid border-white flex items-center gap-2 -mb-4 sm:-mb-0 -mt-10 hover:border-cyan-700 duration-200"
+            class="blueShadow mx-auto px-4 py-2 rounded-full border border-solid border-white flex items-center gap-2 -mb-4 sm:-mb-0 -mt-10 hover:border-cyan-700 duration-200 relative overflow-hidden group bg-white text-slate-950"
         >
-            <i class="fa-regular fa-circle-play"></i>
-            <p>{showVideo ? 'Close Video' : 'A few words...'}</p>
+            <div class="absolute top-0 right-full w-full h-full bg-cyan-400 opacity-20 group-hover:translate-x-full z-0 duration-200"></div>
+            <i class="fa-regular fa-circle-play relative z-9"></i>
+            <p class="relative z-9">{showVideo ? 'Close Video' : 'A few words...'}</p>
         </button>
     {#if showVideo}
         <div class="relative">
@@ -431,9 +432,9 @@
         </p>
         <a href="https://github.com/codebymarshall/resume/releases/latest" 
            target="_blank" 
-           class="blueShadow lg:mr-auto text-base sm:text-lg md:text-xl poppins relative mx-auto px-6 py-3 rounded-full overflow-hidden px-6 py-3 group rounded-full bg-white text-slate-950">
+           class="blueShadow mx-auto px-6 py-3 rounded-full relative overflow-hidden group bg-white text-slate-950 text-base sm:text-lg md:text-xl poppins">
            <div class="absolute top-0 right-full w-full h-full bg-cyan-400 opacity-20 group-hover:translate-x-full z-0 duration-200"></div>
-            Download Resume
+           <span class="relative z-9">Download Resume</span>
         </a>
     </section>
 </main>

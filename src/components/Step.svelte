@@ -17,19 +17,15 @@
     </h3>
     <slot />
     <div class="flex-1 flex justify-betweeen gap-4 items-end">
-        <div
-            class="ml-auto cursor-pointer hover:text-slate-950 duration-200 relative after:absolute after:top-0 after:h-0 after:right-full after:bg-white after:w-full after:h-full after:duration-200 hover:after:translate-x-full after:z-[-1] overflow-hidden"
+        <button 
+            type="button" 
+            class="blueShadow ml-auto px-4 py-2 rounded-full relative overflow-hidden group bg-white text-slate-950" 
+            on:click|preventDefault={() => {
+                window.open(step.href, '_blank');
+            }}
         >
-            <button 
-                type="button" 
-                class="z-4 cursor-pointer" 
-                on:click={() => {
-                    event.preventDefault();
-                    window.open(step.href, '_blank');
-                }}
-            >
-                Go to &rarr;
-            </button>
-        </div>
+            <div class="absolute top-0 right-full w-full h-full bg-cyan-400 opacity-20 group-hover:translate-x-full z-0 duration-200"></div>
+            <span class="relative z-9">Go to &rarr;</span>
+        </button>
     </div>
 </a>
