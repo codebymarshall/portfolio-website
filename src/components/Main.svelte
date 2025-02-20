@@ -92,7 +92,7 @@
         </div>
         <button
             on:click={toggleVideo}
-            class="blueShadow mx-auto px-4 py-2 rounded-full border border-solid border-white flex items-center gap-2 -mb-4 sm:-mb-0 -mt-10 hover:border-cyan-700 duration-200 relative overflow-hidden group bg-white text-slate-950"
+            class="blueShadow mx-auto px-4 py-2 rounded-full border border-solid border-white flex items-center gap-2 -mb-4 sm:-mb-0 -mt-10 hover:border-cyan-700 duration-200 relative overflow-hidden group bg-white text-slate-950 cursor-pointer"
         >
             <div class="absolute top-0 right-full w-full h-full bg-cyan-400 opacity-20 group-hover:translate-x-full z-0 duration-200"></div>
             <i class="fa-regular fa-circle-play relative z-9"></i>
@@ -274,8 +274,8 @@
                 My Skills & <span class="poppins text-cyan-400">Tech</span> Stack
             </h3>
         </div>
-        <div class="flex flex-wrap justify-center gap-6 my-15">
-            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 duration-200">
+        <div class="flex flex-wrap justify-center gap-6 my-15 ">
+            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 hover:border-2 transition-all duration-200">
                 <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
                     Main Coding Languages
                 </p>
@@ -300,7 +300,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 duration-200">
+            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 hover:border-2 transition-all duration-200">
                 <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
                     Frontend
                 </p>
@@ -328,7 +328,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 duration-200">
+            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 hover:border-2 transition-all duration-200">
                 <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
                     Backend
                 </p>
@@ -351,7 +351,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 duration-200">
+            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 hover:border-2 transition-all duration-200">
                 <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
                     Databases & Storage
                 </p>
@@ -378,7 +378,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 duration-200">
+            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 hover:border-2 transition-all duration-200">
                 <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
                     Cloud & Dev Ops
                 </p>
@@ -401,7 +401,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 duration-200">
+            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 hover:border-2 transition-all duration-200">
                 <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
                     Other tools
                 </p>

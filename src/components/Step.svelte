@@ -19,7 +19,7 @@
     <div class="flex-1 flex justify-betweeen gap-4 items-end">
         <button 
             type="button" 
-            class="blueShadow ml-auto px-4 py-2 rounded-full relative overflow-hidden group bg-white text-slate-950" 
+            class="blueShadow ml-auto px-4 py-2 rounded-full relative overflow-hidden group bg-white text-slate-950 cursor-pointer" 
             on:click|preventDefault={() => {
                 window.open(step.href, '_blank');
             }}
