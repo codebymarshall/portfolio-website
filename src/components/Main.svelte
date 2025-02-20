@@ -3,7 +3,7 @@
 
     let steps = [
         {
-            name: "Eccomerce Store Demo",
+            name: "E-commerce Store Demo",
             icon: "fa-solid fa-cart-shopping",
             description:
                 "A modern e-commerce store built with Next.js, TypeScript, and Tailwind CSS. This project demonstrates a fully functional e-commerce platform with features like product browsing, cart management, user authentication, and secure payments.",
@@ -33,7 +33,7 @@
                 "I developed my programming skills through formal education and hands-on experience, earning a bachelor's degree in software engineering. I fell in love with the creativity and problem-solving involved in developing and engineering innovative software solutions. Starting with Java, JavaScript, and Python, I expanded my expertise to include full-stack development, backend programming, cloud services, and software design. My passion for technology drives me to continuously learn and build scalable, high-performance applications.",
         },
         {
-            name: "a poblem solver",
+            name: "a problem solver",
             description:
                 "Building and engineering software solutions allows me to channel my creativity while tackling complex challenges. I thrive on solving problems through innovative design and development, constantly learning new technologies and refining my skills. I enjoy creating seamless, high-performance applications that enhance user experiences and drive efficiency.",
         },
@@ -241,7 +241,7 @@
                     <tr class="border-t border-solid border-gray-950">
                         <td
                             class="border-r border-solid border-slate-200 pl-4 pr-8 py-4 font-semibold text-sm"
-                            >Progamming Ability</td
+                            >Programming Ability</td
                         >
                         <td><i class="fa-solid fa-check text-slate-500"></i></td>
                         <td><i class="fa-solid fa-xmark text-slate-500"></i></td>

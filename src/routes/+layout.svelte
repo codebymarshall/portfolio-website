@@ -2,9 +2,9 @@
     import "../app.css";
     import Footer from "../components/Footer.svelte";
     import Header from "../components/Header.svelte";
-    let y;
-    let innerWidth = 0;
-    let innerHeight = 0;
+    let y = $state(0);
+    let innerWidth = $state(0);
+    let innerHeight = $state(0);
 		let { children } = $props();  
 
     function goTop() {
@@ -22,14 +22,15 @@
                 : " pointer-events-none opacity-0")}
     >
         <button
-            on:click={goTop}
+            onclick={goTop}
+            aria-label="Scroll to top"
             class="ml-auto rounded-full bg-slate-900 text-slate-400 px-3 sm:px-4 hover:bg-slate-800 cursor-pointer aspect-square grid place-items-center"
         >
-            <i class="fa-solid fa-arrow-up" />
+            <i class="fa-solid fa-arrow-up"></i>
         </button>
     </div>
     <Header {y} {innerHeight}/>
-    <slot />
+    {@render children()}
     <Footer />
 </div>
 <svelte:window bind:scrollY={y} bind:innerHeight bind:innerWidth />

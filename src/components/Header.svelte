@@ -13,7 +13,7 @@
 <header
     class={"sticky z-[10] top-0 duration-200 px-6 flex items-center justify-between border-b border-solid " +
         (y > 0
-            ? " py-4 bg-slate-950 border-slate-950"
+            ? " py-4 bg-gray-950 border-slate-400 border-r border-l opacity-85"
             : " py-6 bg-transparent border-transparent")}
 >
     <h1 class="font-medium">
