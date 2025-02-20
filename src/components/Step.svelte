@@ -1,4 +1,5 @@
 <script>
+    import Buttons from "./buttons.svelte";
     export let step;
 </script>
 
@@ -16,16 +17,7 @@
         {step.name}
     </h3>
     <slot />
-    <div class="flex-1 flex justify-betweeen gap-4 items-end">
-        <button 
-            type="button" 
-            class="blueShadow ml-auto px-4 py-2 rounded-full relative overflow-hidden group bg-white text-slate-950 cursor-pointer" 
-            on:click|preventDefault={() => {
-                window.open(step.href, '_blank');
-            }}
-        >
-            <div class="absolute top-0 right-full w-full h-full bg-cyan-400 opacity-20 group-hover:translate-x-full z-0 duration-200"></div>
-            <span class="relative z-9">Go to &rarr;</span>
-        </button>
+    <div class="flex-1 flex justify-betweeen gap-4 items-end py-6">
+        <Buttons text="Go to →" href="{step.href}" target="_blank" className="ml-auto" />
     </div>
 </a>

@@ -1,5 +1,7 @@
 <script>
     import Step from "./Step.svelte";
+    import Card from "./card.svelte";
+    import Buttons from "./buttons.svelte";
 
     let steps = [
         {
@@ -50,11 +52,63 @@
         event.preventDefault();
         showVideo = !showVideo;
     }
+
+    const skillsData = [
+    {
+      title: "Main Coding Languages",
+      skills: [
+        { name: "JavaScript", icon: "fa-brands fa-js" },
+        { name: "Python", icon: "fa-brands fa-python" },
+        { name: "Java", icon: "fa-brands fa-java" }
+      ]
+    },
+    {
+      title: "Frontend",
+      skills: [
+        { name: "React", icon: "fa-brands fa-react" },
+        { name: "HTML & CSS", icon: "fa-brands fa-html5" },
+        { name: "TailwindCSS", icon: "fa-brands fa-css3-alt" },
+        { name: "Android", icon: "fa-brands fa-android" }
+      ]
+    },
+    {
+      title: "Backend",
+      skills: [
+        { name: "Java", icon: "fa-brands fa-java" },
+        { name: "Spring Boot", icon: "fa-solid fa-bolt" },
+        { name: "Node.js", icon: "fa-brands fa-node-js" }
+      ]
+    },
+    {
+      title: "Databases & Storage",
+      skills: [
+        { name: "MySQL", icon: "fa-solid fa-database" },
+        { name: "PostgreSQL", icon: "fa-solid fa-database" },
+        { name: "Room Database", icon: "fa-solid fa-database" },
+        { name: "SQLite", icon: "fa-solid fa-database" }
+      ]
+    },
+    {
+      title: "Cloud & Dev Ops",
+      skills: [
+        { name: "AWS", icon: "fa-brands fa-aws" },
+        { name: "Docker", icon: "fa-brands fa-docker" },
+        { name: "Github Actions", icon: "fa-brands fa-git-alt" }
+      ]
+    },
+    {
+      title: "Other tools",
+      skills: [
+        { name: "Git & GitHub", icon: "fa-brands fa-github" },
+        { name: "Linux & Bash Scripting", icon: "fa-brands fa-linux" }
+      ]
+    },
+  ];
 </script>
 
 <main class="flex flex-col flex-1 p-4 text-slate-200">
     <section
-        id="introPage"
+        id="home"
         class="grid grid-cols-1 lg:grid-cols-2 gap-10 py-8 sm:py-14"
     >
         <div
@@ -90,14 +144,11 @@
                 Curious to <span class="poppins text-cyan-400">see</span> my work?
             </h3>
         </div>
-        <button
-            on:click={toggleVideo}
-            class="z-[2] blueShadow mx-auto px-4 py-2 rounded-full border border-solid border-white flex items-center gap-2 -mb-4 sm:-mb-0 -mt-10 hover:border-cyan-700 duration-200 relative overflow-hidden group bg-white text-slate-950 cursor-pointer"
-        >
-            <div class="absolute top-0 right-full w-full h-full bg-cyan-400 opacity-20 group-hover:translate-x-full z-0 duration-200"></div>
-            <i class="fa-regular fa-circle-play relative z-9"></i>
-            <p class="relative z-9">{showVideo ? 'Close Video' : 'A few words...'}</p>
-        </button>
+        <Buttons 
+            onClick={toggleVideo}
+            dynamicText={() => showVideo ? 'Close Video' : 'A few words...'}
+            icon="fa-regular fa-circle-play" className='mx-auto'
+            />
     {#if showVideo}
         <div class="z-[3]">
             <smartvideo src="https://www.youtube.com/embed/VNOAUjHFTFw?si=pY3cqaX30kOL3RvA" 
@@ -252,158 +303,17 @@
         </div>
         <p class="mx-auto">So why not invest?</p>
     </section>
-    <section id="skills" class="z-[2] py-20 flex flex-col gap-10">
+    <section id="skills" class="py-20 flex flex-col gap-10">
         <div
             class="flex flex-col gap-2 text-center relative before:absolute before:top-0 before:left-0 before:w-2/3 before:h-1.5 before:bg-cyan-700 after:absolute after:bottom-0 after:right-0 after:w-2/3 after:h-1.5 after:bg-cyan-700 py-4">
             <h3 class="font-semibold text-3xl sm:text-4xl md:text-5xl">
                 My Skills & <span class="poppins text-cyan-400">Tech</span> Stack
             </h3>
         </div>
-        <div class="flex flex-wrap justify-center gap-6 my-15 ">
-            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 hover:border-2 transition-all duration-200">
-                <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
-                    Main Coding Languages
-                </p>
-                <p class="mt-2">&nbsp;</p>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <div class="flex flex-col items-center">
-                        <i class="fa-brands fa-js fa-2xl"></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">JavaScript</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <i class="fa-brands fa-python fa-2xl"></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">Python</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="flex flex-col items-center">
-                            <i class="fa-brands fa-java fa-2xl"></i>
-                            <p class="mt-2">&nbsp;</p>
-                            <p class="mt-2">Java</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 hover:border-2 transition-all duration-200">
-                <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
-                    Frontend
-                </p>
-                <p class="mt-2">&nbsp;</p>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <div class="flex flex-col items-center">
-                        <i class="fa-brands fa-react fa-2xl"></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">React</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <i class="fa-brands fa-html5 fa-2xl"></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">HTML & CSS</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <i class="fa-brands fa-css3-alt fa-2xl"></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">TailwindCSS</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <i class="fa-brands fa-android fa-2xl"></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">Android </p> 
-                    </div>
-                </div>
-            </div>
-            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 hover:border-2 transition-all duration-200">
-                <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
-                    Backend
-                </p>
-                <p class="mt-2">&nbsp;</p>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <div class="flex flex-col items-center">
-                        <i class="fa-brands fa-java fa-2xl"></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">Java</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <i class="fa-solid fa-bolt fa-2xl"></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">Spring Boot</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <i class="fa-brands fa-node-js fa-2xl"></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">Node.js</p>
-                    </div>
-                </div>
-            </div>
-            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 hover:border-2 transition-all duration-200">
-                <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
-                    Databases & Storage
-                </p>
-                <p class="mt-2">&nbsp;</p>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <div class="flex flex-col items-center">
-                        <i class="fa-solid fa-database fa-2xl"></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">MySQL</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <i class="fa-solid fa-database fa-2xl"></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">PostgreSQL</p>
-                    </div><div class="flex flex-col items-center">
-                        <i class="fa-solid fa-database fa-2xl"></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">SQLite</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <i class="fa-solid fa-database fa-2xl"></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">Room Database</p>
-                    </div>
-                </div>
-            </div>
-            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 hover:border-2 transition-all duration-200">
-                <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
-                    Cloud & Dev Ops
-                </p>
-                <p class="mt-2">&nbsp;</p>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <div class="flex flex-col items-center">
-                        <i class="fa-brands fa-aws fa-2xl"></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">AWS</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <i class="fa-brands fa-docker fa-2xl"></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">Docker</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <i class="fa-brands fa-git-alt fa-2xl" ></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">CI/CD Github Actions</p>
-                    </div>
-                </div>
-            </div>
-            <div class="p-4 sm:p-6 md:p-8 flex flex-col gap-4 rounded-lg border border-solid border-slate-700 text-center group hover:border-slate-400 hover:border-2 transition-all duration-200">
-                <p class="mx-auto poppins font-semibold text-lg sm:text-xl md:text-2xl">
-                    Other tools
-                </p>
-                <p class="mt-2">&nbsp;</p>
-                <div class="flex flex-wrap justify-center gap-6">
-                    <div class="flex flex-col items-center">
-                        <i class="fa-brands fa-github fa-2xl"></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">Git & GitHub</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <i class="fa-brands fa-linux fa-2xl"></i>
-                        <p class="mt-2">&nbsp;</p>
-                        <p class="mt-2">Linux & Bash Scripting</p>
-                    </div>
-                </div>
-            </div>
+        <div class="flex flex-wrap justify-center gap-6 my-15">
+            {#each skillsData as skillCategory}
+                <Card title={skillCategory.title} skills={skillCategory.skills} />
+            {/each}
         </div>
     </section>
     <section id="resume" class="py-20 flex flex-col gap-10">
@@ -412,14 +322,9 @@
                 Curious to <span class="poppins text-cyan-400">see</span> my resume?
             </h3>
         </div>
-        <p class="text-center">
+        <p class="text-center py-6">
             Download my resume to see highlights of my experience and education.
         </p>
-        <a href="https://github.com/codebymarshall/resume/releases/latest" 
-           target="_blank" 
-           class="z-[2] blueShadow mx-auto px-6 py-3 rounded-full relative overflow-hidden group bg-white text-slate-950 text-base sm:text-lg md:text-xl poppins">
-           <div class="absolute top-0 right-full w-full h-full bg-cyan-400 opacity-20 group-hover:translate-x-full z-0 duration-200"></div>
-           <span class="z-[0]">Download Resume</span>
-        </a>
+        <Buttons text="Download Resume" href="https://github.com/codebymarshall/resume/releases/latest" target="_blank" className="mx-auto" />
     </section>
 </main>
