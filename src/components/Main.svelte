@@ -119,13 +119,10 @@
                 <br />Full Stack
                 <span class="poppins text-cyan-400">Developer</span>
             </h2>
-            <p class="text-base sm:text-lg md:text-xl">
+            <p class="text-base sm:text-lg md:text-xl py-8">
                 My <span class="text-cyan-400"> favorite tech</span> includes Java, JavaScript (Next.js, React, Angular), TailwindCSS, Node.js with Express.js, and PostgreSQL.
             </p>
-            <a href="https://www.linkedin.com/messaging/compose/?recipient=codebymarshall" target="_blank" class="blueShadow mx-auto lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-white text-slate-950 z-2">
-                <div class="absolute top-0 right-full w-full h-full bg-cyan-400 opacity-20 group-hover:translate-x-full z-0 duration-200"></div>
-                <h4 class="z-0">Get in touch &rarr;</h4>
-            </a>
+            <Buttons text="Get in touch →" href="https://www.linkedin.com/messaging/compose/?recipient=codebymarshall" target="_blank" className="mr-auto lg:ml-0 text-base px-6 py-3 sm:text-lg md:text-xl mx-auto" />
         </div>
         <div class="relative shadow-2xl grid place-items-center">
             <img

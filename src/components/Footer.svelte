@@ -1,4 +1,5 @@
 <script>
+    import Buttons from "./buttons.svelte";
     export let y;
 </script>
 
@@ -9,9 +10,7 @@
             ? "bg-gray-950/85"
             : "bg-gray-950")}
 >
-    <p class="px-4 py-2 bg-white text-slate-950 font-medium">
-        Connect with me &darr;
-    </p>
+    <Buttons text="Connect with me" href="https://www.linkedin.com/messaging/compose/?recipient=codebymarshall" target="_blank" icon="fa-solid fa-message"className="mx-auto" />
     <div class="flex flex-col gap-4 items-center justify-center">
         <p>
             <b class="pr-2">Email:</b>

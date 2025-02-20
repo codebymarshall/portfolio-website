@@ -16,10 +16,10 @@
     class={`z-[2] blueShadow px-4 py-2 rounded-full border border-solid border-white flex items-center gap-2 sm:-mb-0 -mt-10 hover:border-cyan-700 duration-200 relative overflow-hidden group bg-white text-slate-950 cursor-pointer ${className}`}
   >
     <div class="absolute top-0 right-full w-full h-full bg-cyan-400 opacity-20 group-hover:translate-x-full z-0 duration-200"></div>
-    {#if icon}
+    <p class="relative z-3">{#if dynamicText}{@html dynamicText()} {:else}{text}{/if}
+      {#if icon}
       <i class="{icon} relative z-3"></i>
     {/if}
-    <p class="relative z-3">{#if dynamicText}{@html dynamicText()} {:else}{text}{/if}
   </a>
 {:else}
   <!-- Regular Button -->
