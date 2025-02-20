@@ -68,9 +68,9 @@
             <p class="text-base sm:text-lg md:text-xl">
                 My <span class="text-cyan-400"> favorite tech</span> includes Java, JavaScript (Next.js, React, Angular), TailwindCSS, Node.js with Express.js, and PostgreSQL.
             </p>
-            <a href="https://www.linkedin.com/messaging/compose/?recipient=codebymarshall" target="_blank" class="blueShadow mx-auto lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-white text-slate-950">
+            <a href="https://www.linkedin.com/messaging/compose/?recipient=codebymarshall" target="_blank" class="blueShadow mx-auto lg:mr-auto lg:ml-0 text-base sm:text-lg md:text-xl poppins relative overflow-hidden px-6 py-3 group rounded-full bg-white text-slate-950 z-2">
                 <div class="absolute top-0 right-full w-full h-full bg-cyan-400 opacity-20 group-hover:translate-x-full z-0 duration-200"></div>
-                <h4 class="relative z-9">Get in touch &rarr;</h4>
+                <h4 class="z-0">Get in touch &rarr;</h4>
             </a>
         </div>
         <div class="relative shadow-2xl grid place-items-center">
@@ -92,14 +92,14 @@
         </div>
         <button
             on:click={toggleVideo}
-            class="blueShadow mx-auto px-4 py-2 rounded-full border border-solid border-white flex items-center gap-2 -mb-4 sm:-mb-0 -mt-10 hover:border-cyan-700 duration-200 relative overflow-hidden group bg-white text-slate-950 cursor-pointer"
+            class="z-[2] blueShadow mx-auto px-4 py-2 rounded-full border border-solid border-white flex items-center gap-2 -mb-4 sm:-mb-0 -mt-10 hover:border-cyan-700 duration-200 relative overflow-hidden group bg-white text-slate-950 cursor-pointer"
         >
             <div class="absolute top-0 right-full w-full h-full bg-cyan-400 opacity-20 group-hover:translate-x-full z-0 duration-200"></div>
             <i class="fa-regular fa-circle-play relative z-9"></i>
             <p class="relative z-9">{showVideo ? 'Close Video' : 'A few words...'}</p>
         </button>
     {#if showVideo}
-        <div class="relative">
+        <div class="z-[3]">
             <smartvideo src="https://www.youtube.com/embed/VNOAUjHFTFw?si=pY3cqaX30kOL3RvA" 
                 width="1280" height="720"
                 class="swarm-fluid" controls>
@@ -159,21 +159,6 @@
         </p>
         <div class="flex flex-col gap-20 w-full mx-auto max-w-[800px]">
             {#each benefits as benefit, index}
-                <!-- <div class="flex flex-col gap-2 mx-auto">
-                    <div class="flex items-end gap-4">
-                        <p
-                            class="poppins text-6xl sm:text-7xl md:text-8xl text-slate-500 font-medium"
-                        >
-                            {benefit.metric}
-                        </p>
-                        <p
-                            class="text-xl sm:text-2xl md:text-3xl capitalize pb-2"
-                        >
-                            {benefit.name}
-                        </p>
-                    </div>
-                    <p class="text-center italic">- {benefit.description}</p>
-                </div> -->
                 <div class="flex gap-6 sm:gap-8">
                     <p
                         class="poppins text-4xl sm:text-5xl md:text-6xl text-slate-500 font-semibold"
@@ -193,7 +178,7 @@
             The <span class="text-cyan-400">Complete</span> Package
         </h5>
         <div
-            class="flex flex-col overflow-x-scroll gap-10 max-w-[800px] mx-auto w-full"
+            class="z-[2] flex flex-col overflow-x-scroll gap-10 max-w-[800px] mx-auto w-full"
         >
             <table class="bg-slate-200 text-slate-700 rounded text-center">
                 <thead class={"border-b border-solid border-slate-200  "}>
@@ -267,7 +252,7 @@
         </div>
         <p class="mx-auto">So why not invest?</p>
     </section>
-    <section id="skills" class="py-20 flex flex-col gap-10">
+    <section id="skills" class="z-[2] py-20 flex flex-col gap-10">
         <div
             class="flex flex-col gap-2 text-center relative before:absolute before:top-0 before:left-0 before:w-2/3 before:h-1.5 before:bg-cyan-700 after:absolute after:bottom-0 after:right-0 after:w-2/3 after:h-1.5 after:bg-cyan-700 py-4">
             <h3 class="font-semibold text-3xl sm:text-4xl md:text-5xl">
@@ -432,9 +417,9 @@
         </p>
         <a href="https://github.com/codebymarshall/resume/releases/latest" 
            target="_blank" 
-           class="blueShadow mx-auto px-6 py-3 rounded-full relative overflow-hidden group bg-white text-slate-950 text-base sm:text-lg md:text-xl poppins">
+           class="z-[2] blueShadow mx-auto px-6 py-3 rounded-full relative overflow-hidden group bg-white text-slate-950 text-base sm:text-lg md:text-xl poppins">
            <div class="absolute top-0 right-full w-full h-full bg-cyan-400 opacity-20 group-hover:translate-x-full z-0 duration-200"></div>
-           <span class="relative z-9">Download Resume</span>
+           <span class="z-[0]">Download Resume</span>
         </a>
     </section>
 </main>

@@ -31,6 +31,6 @@
     </div>
     <Header {y} {innerHeight}/>
     {@render children()}
-    <Footer />
+    <Footer {y} />
 </div>
 <svelte:window bind:scrollY={y} bind:innerHeight bind:innerWidth />

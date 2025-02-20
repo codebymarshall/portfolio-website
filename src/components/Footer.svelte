@@ -1,6 +1,13 @@
+<script>
+    export let y;
+</script>
+
 <footer
     id="contact"
-    class="py-20 sm:py-32 bg-gray-950 opacity-85 border-r border-t border-l border-solid border-slate-400 flex flex-col gap-4 sm:gap-8 justify-center items-center"
+    class={"relative z-[5] py-20 sm:py-32 border-r border-t border-l border-solid border-slate-400 flex flex-col gap-4 sm:gap-8 justify-center items-center " +
+        (y > 0
+            ? "bg-gray-950/85"
+            : "bg-gray-950")}
 >
     <p class="px-4 py-2 bg-white text-slate-950 font-medium">
         Connect with me &darr;
