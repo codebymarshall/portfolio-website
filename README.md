@@ -6,13 +6,15 @@ This is the personal portfolio website of Jonathan Marshall, a full-stack softwa
 
 ## Features
 
-Projects Showcase: A collection of projects with descriptions, technologies used, and links to repositories or live demos.
+**Projects Showcase:** A collection of projects with descriptions, technologies used, and links to repositories or live demos.
 
-About Me: A section detailing background, skills, and experience.
+**About Me:** A section detailing background, skills, and experience.
 
-Contact Form: A form for visitors to reach out directly.
+**Tech stack:** A form for visitors to reach out directly.
 
-Responsive Design: Built to be fully functional on desktops, tablets, and mobile devices.
+**Resume:** A button that takes the visitor to the latest resume release.
+
+**Responsive Design:** Built to be fully functional on desktops, tablets, and mobile devices.
 
 
 ## Tech Stack
