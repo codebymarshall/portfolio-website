@@ -1,38 +1,31 @@
-# sv
+#Portfolio Website
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+##Overview
 
-## Creating a project
+This is the personal portfolio website of Jonathan Marshall, a full-stack software engineer specializing in Java, JavaScript, and Python. The website showcases projects, skills, and experience while providing a way for potential employers and collaborators to get in touch.
 
-If you're seeing this, you've probably already done this step. Congrats!
+##Features
 
-```bash
-# create a new project in the current directory
-npx sv create
+Projects Showcase: A collection of projects with descriptions, technologies used, and links to repositories or live demos.
 
-# create a new project in my-app
-npx sv create my-app
-```
+About Me: A section detailing background, skills, and experience.
 
-## Developing
+Contact Form: A form for visitors to reach out directly.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Responsive Design: Built to be fully functional on desktops, tablets, and mobile devices.
 
-```bash
-npm run dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+##Tech Stack
 
-## Building
+Svelte 5, Tailwind CSS, Node.js
 
-To create a production version of your app:
 
-```bash
-npm run build
-```
+##Contact
 
-You can preview the production build with `npm run preview`.
+If you have any questions or would like to connect, feel free to reach out:
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Email: Jonathan Marshall
+
+LinkedIn: linkedin.com/in/codebymarshall
+
+GitHub: github.com/codebymarshall
