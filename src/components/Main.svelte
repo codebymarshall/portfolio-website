@@ -160,7 +160,7 @@
                     A modern e-commerce store built with <strong
                         class="text-cyan-400"
                         >Next.js, TypeScript, and Tailwind CSS.</strong
-                    > This project demonstrates a fully functional e-commerce platform with features like product browsing, cart management, user authentication, and secure payments.
+                    > This project demonstrates a fully functional e-commerce platform with features like product browsing, cart management, user authentication, and secure payments (coming soon)!
                 </p>
             </Step>
             <Step step={steps[1]}>
