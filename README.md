@@ -10,7 +10,7 @@ This is the personal portfolio website of Jonathan Marshall, a full-stack softwa
 
 **About Me:** A section detailing background, skills, and experience.
 
-**Tech stack:** A form for visitors to reach out directly.
+**Tech stack:** A section to showcase some of the technologies I have experience using.
 
 **Resume:** A button that takes the visitor to the latest resume release.
 
